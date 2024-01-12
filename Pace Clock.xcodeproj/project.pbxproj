@@ -12,6 +12,7 @@
 		149C1E6F2B519EAB0071D893 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149C1E6E2B519EAB0071D893 /* ContentView.swift */; };
 		149C1E712B519EAC0071D893 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 149C1E702B519EAC0071D893 /* Assets.xcassets */; };
 		149C1E742B519EAC0071D893 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 149C1E732B519EAC0071D893 /* Preview Assets.xcassets */; };
+		149C1E842B51AFF30071D893 /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 149C1E832B51AFF30071D893 /* digital-7.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		149C1E6E2B519EAB0071D893 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		149C1E702B519EAC0071D893 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		149C1E732B519EAC0071D893 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		149C1E832B51AFF30071D893 /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7.ttf"; sourceTree = "<group>"; };
+		149C1E852B51B0820071D893 /* Pace-Clock-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Pace-Clock-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +81,10 @@
 		149C1E6B2B519EAB0071D893 /* Pace Clock Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				149C1E852B51B0820071D893 /* Pace-Clock-Watch-App-Info.plist */,
 				149C1E6C2B519EAB0071D893 /* Pace_ClockApp.swift */,
 				149C1E6E2B519EAB0071D893 /* ContentView.swift */,
+				149C1E862B51B1480071D893 /* Resources */,
 				149C1E702B519EAC0071D893 /* Assets.xcassets */,
 				149C1E722B519EAC0071D893 /* Preview Content */,
 			);
@@ -92,6 +97,14 @@
 				149C1E732B519EAC0071D893 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		149C1E862B51B1480071D893 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				149C1E832B51AFF30071D893 /* digital-7.ttf */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				149C1E742B519EAC0071D893 /* Preview Assets.xcassets in Resources */,
+				149C1E842B51AFF30071D893 /* digital-7.ttf in Resources */,
 				149C1E712B519EAC0071D893 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +347,7 @@
 				DEVELOPMENT_TEAM = 3ZWQ27S93Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Pace-Clock-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Pace Clock";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -363,6 +378,7 @@
 				DEVELOPMENT_TEAM = 3ZWQ27S93Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Pace-Clock-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Pace Clock";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
