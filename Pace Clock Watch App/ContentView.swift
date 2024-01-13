@@ -16,6 +16,9 @@ struct ContentView: View {
     let clock = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     @State var cancellable: Cancellable?
     
+    let workoutManager = WorkoutManager()
+    @State private var workoutActive = false
+    
     var body: some View {
         VStack {
             if minutesElapsed > 0 {
@@ -24,15 +27,25 @@ struct ContentView: View {
                         .font(.headline)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
+                .padding([.leading, .top])
             }
+//            HStack(spacing: 0) {
+//                ForEach(clockDisplay.map { String($0) }, id: \.self) { digit in
+//                    Text(digit)
+//                        .font(.custom("Digital-7", size: 80))
+//                        .frame(width: 35, alignment: .center) // Fixed width for each character
+//                }
+//            }
+//            .padding([.leading, .bottom, .trailing])
             HStack(spacing: 0) {
-                ForEach(clockDisplay.map { String($0) }, id: \.self) { digit in
-                    Text(digit)
+                ForEach(Array(clockDisplay.enumerated()), id: \.offset) { index, digit in
+                    Text(String(digit))
                         .font(.custom("Digital-7", size: 80))
                         .frame(width: 35, alignment: .center) // Fixed width for each character
                 }
             }
-            .padding()
+            .padding([.leading, .bottom, .trailing])
+
             HStack {
                 if !timerRunning {
                     Button(action: startTimer){
@@ -48,12 +61,18 @@ struct ContentView: View {
                     .padding()
                 }
                 
-                if !timerRunning {
+                if !timerRunning && elapsedTime != 0    {
                     Button(action: resetTimer) {
                         Image(systemName: "arrow.counterclockwise")
                     }
                     .padding()
                 }
+            }
+            if workoutActive {
+                Button(action: stopButton) {
+                    Text("Stop Workout")
+                }
+                .background(Color.red)
             }
         }
     }
@@ -76,6 +95,8 @@ struct ContentView: View {
             cancellable = clock.sink { _ in
                 elapsedTime = Date().timeIntervalSince(startTime)
             }
+            workoutManager.startWorkout()
+            workoutActive = true
             timerRunning = true
         }
     }
@@ -88,6 +109,13 @@ struct ContentView: View {
     private func resetTimer() {
         pauseTimer()
         elapsedTime = 0
+    }
+    
+    private func stopButton() {
+        pauseTimer()
+        resetTimer()
+        workoutManager.stopWorkout()
+        workoutActive = false
     }
 }
 
