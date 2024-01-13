@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 import UIKit
+import HealthKit
 
 struct ContentView: View {
     @State var startTime = Date()
@@ -21,6 +22,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            Spacer()
             if minutesElapsed > 0 {
                 HStack {
                     Text("\(minutesElapsed)")
@@ -29,14 +31,6 @@ struct ContentView: View {
                 }
                 .padding([.leading, .top])
             }
-//            HStack(spacing: 0) {
-//                ForEach(clockDisplay.map { String($0) }, id: \.self) { digit in
-//                    Text(digit)
-//                        .font(.custom("Digital-7", size: 80))
-//                        .frame(width: 35, alignment: .center) // Fixed width for each character
-//                }
-//            }
-//            .padding([.leading, .bottom, .trailing])
             HStack(spacing: 0) {
                 ForEach(Array(clockDisplay.enumerated()), id: \.offset) { index, digit in
                     Text(String(digit))
@@ -45,7 +39,7 @@ struct ContentView: View {
                 }
             }
             .padding([.leading, .bottom, .trailing])
-
+            
             HStack {
                 if !timerRunning {
                     Button(action: startTimer){
@@ -74,6 +68,7 @@ struct ContentView: View {
                 }
                 .background(Color.red)
             }
+            Spacer()
         }
     }
     
